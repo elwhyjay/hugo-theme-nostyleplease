@@ -2,14 +2,14 @@
 title = "info"
 
   [[entries.entries]]
-  title = "a (nearly) no-CSS, fast, minimalist Hugo theme ported from <a href='https://github.com/riggraz/no-style-please'>riggraz/no-style-please</a>."
+  title = "Developer"
 
   [[entries.entries]]
   title = "github repo"
-  url = "https://github.com/riggraz/no-style-please"
+  url = "https://github.com/elwhyjay"
 
   [[entries.entries]]
-  title = "used by <a href='https://riggraz.dev'>riggraz.dev</a> and <a href='https://github.com/riggraz/no-style-please/network/dependents'>many others</a>"
+  title = "recent interest is NLP"
 
 [[entries]]
 title = "all posts"
@@ -44,10 +44,10 @@ title = "another list"
 
     [[entries.entries.entries]]
     title = "example page"
-    url = "about"
+    url = "/post/hello_world"
 
 [[entries]]
-title = "PRO TIP"
+title = "TIP"
 entries = [
-   { title = "to edit this menu, edit data/menu.toml file" }
+   { title = "Working...." }
   ]
