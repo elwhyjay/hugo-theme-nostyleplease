@@ -1,3 +1,4 @@
+
 {{- $posts := "" -}}
 
 {{- if .section -}}
@@ -8,11 +9,20 @@
     {{- else -}}
         {{- if (eq .context.Kind "term") -}}
             {{- $posts = .context.Data.Pages -}}
-	{{- else -}}
+	    {{- else -}}
             {{- $posts = site.RegularPages }}
-	{{- end -}}
+	    {{- end -}}
     {{- end -}}
 {{- end -}}
+
+
+{{- if .filters -}}
+    
+    {{- with .filters.tags -}}
+        {{- $posts = where $posts "Params.tags" "intersect" (slice "pinned") -}}
+    {{- end -}}
+{{- end -}}
+
 
 {{- $limit_exceeded:= "" -}}
 {{- if (and .limit (gt (len $posts) .limit)) -}}
@@ -28,7 +38,10 @@
     <ul>
         {{- range $post := $posts -}}
         <li>
-            <span>{{- ($post.Date | time.Format site.Params.theme_config.date_format) }}</span>
+            {{- if ne $.context.Kind "taxonomy" }}
+                {{- ($post.Date | time.Format site.Params.theme_config.date_format) }}
+            {{- end }}
+            
             <a href="{{ $post.Permalink | relURL }}">{{ $post.Title }}</a>
         </li>
         {{ end }}

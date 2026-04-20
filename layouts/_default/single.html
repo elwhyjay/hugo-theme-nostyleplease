@@ -18,4 +18,8 @@
 
     {{ .Content }}
 </article>
+
+{{ if not .Params.disable_comments }}
+    {{ partial "comments.html" . }}
+{{ end }}
 {{ end }}

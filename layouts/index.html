@@ -1,12 +1,39 @@
+
+
 {{ define "main" }}
 
-<header>
-    <h1>{{ $.Site.Title }}</h1>
-    {{- if $.Site.Params.theme_config.show_description -}}
-        <p>{{ $.Site.Params.description }}</p>
-    {{- end -}}
+
+
+
+<header style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+    <div style="width: 100%; height: 100%; background-color: white; flex-shrink: 0;">
+        <!-- 여기에 이미지를 넣을 수 있습니다 -->
+        <img src="{{ "img/background.gif" | relURL }}" alt="Profile" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <br>
+    <div>
+        <h1>{{ $.Site.Title }}</h1>
+        
+        {{- if $.Site.Params.theme_config.show_description -}}
+            <p>{{ $.Site.Params.description }}</p>
+        {{- end -}}
+    </div>
+    
 </header>
+
 {{ .Content }}
 {{ partial "menu_item.html" (dict "context" . "collection" $.Site.Data.menu.entries) }}
+
+<style>
+    @media (max-width: 600px) {
+        header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        header > div:last-child {
+            margin-top: 10px;
+        }
+    }
+</style>
 
 {{ end }}

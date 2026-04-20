@@ -1,0 +1,11 @@
+<div style="display: flex; gap: 20px; margin-bottom: 20px;">
+    {{ range $index, $src := .Params }}
+      {{ if modBool $index 2 }}
+        {{ $caption := index $.Params (add $index 1) }}
+        <figure style="width: {{ div 100 (div (len $.Params) 2) }}%; margin: 0;">
+          <img src="{{ $src }}" style="width: 100%; height: 380px; object-fit: contain;">
+          <figcaption style="text-align: center; font-size: 0.9em; margin-top: 8px;">{{ $caption }}</figcaption>
+        </figure>
+      {{ end }}
+    {{ end }}
+  </div>
